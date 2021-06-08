@@ -1,0 +1,7 @@
+nome = str(input('Qual seu nome completo?'))
+nma = nome.upper()
+nmi = nome.lower()
+nl = nome.replace(' ', '').__len__()
+npn = nome.split()
+print(f'Seu nome é {nome}\nEm maiúsculo {nma}\nEm minúsculo {nmi}')
+print(f'Tem {nl} letras\nPrimeiro nome tem {npn[0].__len__()} letras')
