@@ -1,0 +1,58 @@
+"""
+Counter () - Vem do Módulo collections
+No Python temos:
+Containers -> Que são um local onde se guarda diversas infotrmações, como:
+    listas, set, dicionários e tuplas
+Com o Collections, ele adiciona 5 novos próprios:
+    counter, deque, namedTuple, orderDict, defaultDict
+Falando sobre o Counter():
+    O counter simplesmente faz uma contagem o que quer que seja (elementos)
+    Retorna um Dicionário com essa Contagem, na ordem decrescente
+    Como parâmetro, o Counter() recebe qualquer Container
+"""
+
+from collections import Counter
+
+c = Counter('ferrari')  # Em todos os casos ele vai fazer uma contagem e retornar um dict - decrescente
+c2 = Counter(['a', 'b', 'b', 'c', 'a'])
+c3 = Counter({'a': 1, 'b': 2})
+c4 = Counter(cao=2, gato=3)
+print(c)
+print(c2)
+print(c3)
+print(c4)
+print(c4['gato'])  # Vai me retornar um valor, daquele objetol, nesse caso retorna 3
+print(c4['tigre'])  # Se não existir, retorna o valor 0, ele não dá erro
+print(list(c4.elements()))  # Me retornar todos os elementos, numa lista, ex: cao=5 -> ['cao', 'cao', 'cao', 'cao', 'cao']
+print(list(c3.elements()))  # Aqui vai me retornar, já que a:1 , b:2 -> ['b', 'b', 'a']
+print(c2.most_common(1))  # Ele vai me dizer o elemento mais comum da variável, e dentro dos (), você coloca se quiser ver o 1 mais comum -> (1), o segundo -> (2)
+# Retorna uma Tupla, e o número de vezes, ex: c2.most_common(1) == [('a', 2)]
+# Se most_common(2) ele mostra o primeiro resultado e em seguida o segundo, ex: c2.most_common(2) == [('a', 2), ('b', 2)]
+zoo = {'macaco': 3, 'girafa': 4, 'elefante': 2, 'leao': 5, 'pinguin': 8}  # Vai me organizar, de forma decrescente
+c5 = Counter(zoo)
+print(c5)
+x = 5
+y = 0
+z = 2
+c6 = Counter([x, y, z])  # Conta os Ints, então : 5 -> 1, 0 -> 1, 2 -> 1
+print(c6)
+a = 2
+b = c = 0
+c7 = Counter([x, y, z, a, b, c])  # Então: 0 -> 3, 2 -> 2, 5 -> 1
+print(c7)
+####################################################
+d = Counter(a=4, b=2, c=0, d=-2)
+e = ['a', 'b', 'b', 'c']
+d.subtract(e)  # Subtração de Elementos
+print(d)  # Com a Subrtração, o resultado seria: a=3, b=0, c=-1, d=-2
+d.update(e)  # Faz uma Soma
+print(d)  # Ficaria: a=4, b=2, c=0, d=-2
+d.clear()  # Limpa o meu Counter
+print(d)  # Me deixa com uma objeto Counter vazio -> Counter()
+########################################################
+d = Counter(a=4, b=2, c=0, d=-2)
+e = Counter(['a', 'b', 'b', 'c'])  # Agora Precisa ser um Counter
+# Nessas Expressões, se o valor de algum elemento é =0 ou menor que 0, ele não aparece
+print(d+e)  # Faz o mesmo que o .update()
+print(d-e)  # Faz o mesmo que o .subtract
+
