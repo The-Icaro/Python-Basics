@@ -1,0 +1,18 @@
+# Args podem ser usados em Funções Sozinhas ou em composições de Classes
+# Elas servem para receber vários dodos para um atributo
+# Não precisam se chamar *args -> É só uma convenção dos desenvolvedores
+# Utilizam-se um * -> *args ou *x
+
+
+def copasdomundo(pais, *anos):  # Função, args -> *anos
+    print(f'País -> {pais}')
+    if anos:  # Pode ser que não haja dados.py para anos, então se tiver
+        for x in anos:  # Para cada dado em anos
+            print(f'Anos -> {x}')  # print
+
+
+copasdomundo('Brasil', 1958, 1962, 1970, 1994, 2002)  # *anos com 5 dados.py
+print()
+copasdomundo('Espanha', 2010)  # *anos com 1 dado
+print()
+copasdomundo('Eslovênia')  # *anos sem nenhum dado
